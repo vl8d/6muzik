@@ -9,16 +9,15 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            
-            .album-cover {
-                width: 150px;
-                height: 150px;
-            }
+        }
+
+        html, body {
+            min-height: 100%;
         }
 
         body {
             font-family: 'Arial', sans-serif;
-            height: 100vh;
+            min-height: 100vh;
             background: linear-gradient(
                 rgba(0, 0, 0, 0.6), 
                 rgba(0, 0, 0, 0.7)
@@ -26,11 +25,17 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-wrapper {
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            overflow: hidden;
+            padding: 2rem 1rem;
         }
 
         .container {
@@ -43,6 +48,7 @@
             width: 90%;
             border: 1px solid rgba(255, 255, 255, 0.1);
             animation: fadeInUp 1s ease-out;
+            margin: 2rem 0;
         }
 
         @keyframes fadeInUp {
@@ -201,21 +207,12 @@
             border-radius: 10px;
         }
 
-        .video-placeholder {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 1.1rem;
+        footer {
             text-align: center;
-        }
-
-        .video-placeholder i {
-            display: block;
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            color: #FF0000;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
         }
 
         @media (max-width: 768px) {
@@ -234,7 +231,7 @@
             }
             
             .video-container {
-                padding-bottom: 60%; /* Slightly taller on mobile */
+                padding-bottom: 60%;
             }
             
             .video-title {
@@ -246,69 +243,75 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Couverture de l'album -->
-        <div class="album-cover pulse"></div>
+    <div class="page-wrapper">
+        <div class="container">
+            <!-- Couverture de l'album -->
+            <div class="album-cover pulse"></div>
 
-        <!-- Titre de la chanson -->
-        <h1 class="song-title">Bas fonds</h1>
+            <!-- Titre de la chanson -->
+            <h1 class="song-title">Bas fonds</h1>
 
-        <!-- Artistes avec liens Instagram -->
-        <div class="artists">
-            <a href="https://instagram.com/6edess" class="artist" target="_blank">
-                <i class="fab fa-instagram"></i>
-                Edess
-            </a>
-        </div>
-
-        <!-- Section vidéo YouTube -->
-        <div class="video-section">
-            <div class="video-title">🎬 Clip officiel</div>
-            <div class="video-container">
-                <iframe 
-                    src="https://www.youtube.com/embed/zOQaShMqxYs?si=YCoWtEgimT900CJF" 
-                    title="YouTube video player"
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen>
-                </iframe>
+            <!-- Artistes avec liens Instagram -->
+            <div class="artists">
+                <a href="https://instagram.com/6edess" class="artist" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    Edess
+                </a>
             </div>
-        </div>
 
-        <!-- Liens vers les plateformes de streaming -->
-        <div class="streaming-links">
-            <a href="https://open.spotify.com/intl-fr/album/6g1h1anA3X9ycC4ZAD4g9I" class="streaming-link" target="_blank">
-                <i class="fab fa-spotify spotify"></i>
-                Spotify
-            </a>
-            
-            <a href="https://music.apple.com/album/bas-fonds-single/1784630878" class="streaming-link" target="_blank">
-                <i class="fab fa-apple apple-music"></i>
-                Apple Music
-            </a>
-            
-            <a href="https://www.deezer.com/album/681292101" class="streaming-link" target="_blank">
-                <i class="fas fa-music deezer"></i>
-                Deezer
-            </a>
-        </div>
+            <!-- Section vidéo YouTube -->
+            <div class="video-section">
+                <div class="video-title">🎬 Clip officiel</div>
+                <div class="video-container">
+                    <iframe 
+                        src="https://www.youtube.com/embed/zOQaShMqxYs?si=YCoWtEgimT900CJF" 
+                        title="YouTube video player"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
 
-        <!-- Section réseaux sociaux supplémentaires -->
-        <div class="social-icons">
-            <p style="margin-bottom: 1rem; opacity: 0.8;">Suivez-nous</p>
-            <div style="display: flex; justify-content: center; gap: 1rem;">
-                <a href="#" class="artist" target="_blank">
-                    <i class="fab fa-tiktok"></i>
-                    TikTok
+            <!-- Liens vers les plateformes de streaming -->
+            <div class="streaming-links">
+                <a href="https://open.spotify.com/intl-fr/album/6g1h1anA3X9ycC4ZAD4g9I" class="streaming-link" target="_blank">
+                    <i class="fab fa-spotify spotify"></i>
+                    Spotify
                 </a>
-                <a href="#" class="artist" target="_blank">
-                    <i class="fab fa-twitter"></i>
-                    Twitter
+                
+                <a href="https://music.apple.com/album/bas-fonds-single/1784630878" class="streaming-link" target="_blank">
+                    <i class="fab fa-apple apple-music"></i>
+                    Apple Music
                 </a>
+                
+                <a href="https://www.deezer.com/album/681292101" class="streaming-link" target="_blank">
+                    <i class="fab fa-deezer deezer"></i>
+                    Deezer
+                </a>
+            </div>
+
+            <!-- Section réseaux sociaux supplémentaires -->
+            <div class="social-icons">
+                <p style="margin-bottom: 1rem; opacity: 0.8;">Suivez-nous</p>
+                <div style="display: flex; justify-content: center; gap: 1rem;">
+                    <a href="https://tiktok.com" class="artist" target="_blank">
+                        <i class="fab fa-tiktok"></i>
+                        TikTok
+                    </a>
+                    <a href="https://twitter.com" class="artist" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                        Twitter
+                    </a>
+                </div>
             </div>
         </div>
     </div>
+
+    <footer>
+        © 2023 Edess - Tous droits réservés
+    </footer>
 
     <script>
         // Animation d'entrée progressive pour les éléments
