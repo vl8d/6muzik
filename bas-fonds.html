@@ -82,7 +82,7 @@
         .song-title {
             font-size: 2.5rem;
             font-weight: bold;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
             -webkit-background-clip: text;
             background-clip: text;
@@ -90,31 +90,11 @@
             text-shadow: none;
         }
 
-        .artists {
+        .artist-name {
+            font-size: 1.5rem;
             margin-bottom: 2rem;
-        }
-
-        .artist {
-            display: inline-block;
-            margin: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: white;
-        }
-
-        .artist:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .artist i {
-            margin-right: 0.5rem;
-            color: #E4405F;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 300;
         }
 
         .streaming-links {
@@ -152,6 +132,7 @@
         .spotify { color: #1DB954; }
         .apple-music { color: #FA243C; }
         .youtube { color: #FF0000; }
+        .youtube-music { color: #FF0000; }
         .soundcloud { color: #FF5500; }
         .deezer { color: #FEAA2D; }
         .amazon { color: #FF9900; }
@@ -170,6 +151,28 @@
             margin-top: 2rem;
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-link {
+            display: inline-block;
+            margin: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: white;
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-link i {
+            margin-right: 0.5rem;
         }
 
         .video-section {
@@ -207,14 +210,6 @@
             border-radius: 10px;
         }
 
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background: rgba(0, 0, 0, 0.5);
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
         @media (max-width: 768px) {
             .container {
                 padding: 2rem;
@@ -223,6 +218,10 @@
             
             .song-title {
                 font-size: 2rem;
+            }
+            
+            .artist-name {
+                font-size: 1.2rem;
             }
             
             .streaming-links {
@@ -248,16 +247,9 @@
             <!-- Couverture de l'album -->
             <div class="album-cover pulse"></div>
 
-            <!-- Titre de la chanson -->
+            <!-- Titre de la chanson et nom de l'artiste -->
             <h1 class="song-title">Bas fonds</h1>
-
-            <!-- Artistes avec liens Instagram -->
-            <div class="artists">
-                <a href="https://instagram.com/6edess" class="artist" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                    Edess
-                </a>
-            </div>
+            <div class="artist-name">Edess</div>
 
             <!-- Section vidéo YouTube -->
             <div class="video-section">
@@ -285,20 +277,25 @@
                     Apple Music
                 </a>
                 
+                <a href="https://music.youtube.com/playlist?list=OLAK5uy_nPneSZYozdxEtDw9a9zl3QqVi6frFarmU" class="streaming-link" target="_blank">
+                    <i class="fab fa-youtube youtube-music"></i>
+                    YouTube Music
+                </a>
+                
                 <a href="https://www.deezer.com/album/681292101" class="streaming-link" target="_blank">
                     <i class="fab fa-deezer deezer"></i>
                     Deezer
                 </a>
             </div>
 
-            <!-- Section réseaux sociaux supplémentaires -->
+            <!-- Section réseaux sociaux -->
             <div class="social-icons">
                 <div style="display: flex; justify-content: center; gap: 1rem;">
-                    <a href="https://www.tiktok.com/@edesss6" class="artist" target="_blank">
+                    <a href="https://www.tiktok.com/@edesss6" class="social-link" target="_blank">
                         <i class="fab fa-tiktok"></i>
                         TikTok
                     </a>
-                    <a href="https://www.instagram.com/6edess" class="artist" target="_blank">
+                    <a href="https://www.instagram.com/6edess" class="social-link" target="_blank">
                         <i class="fab fa-instagram"></i>
                         Instagram
                     </a>
@@ -310,7 +307,7 @@
     <script>
         // Animation d'entrée progressive pour les éléments
         document.addEventListener('DOMContentLoaded', function() {
-            const elements = document.querySelectorAll('.streaming-link, .artist');
+            const elements = document.querySelectorAll('.streaming-link, .social-link');
             elements.forEach((el, index) => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
@@ -324,7 +321,7 @@
         });
 
         // Effet de particules au clic
-        document.querySelectorAll('.streaming-link').forEach(link => {
+        document.querySelectorAll('.streaming-link, .social-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 if (this.href === '#' || this.href.endsWith('#')) {
                     e.preventDefault();
